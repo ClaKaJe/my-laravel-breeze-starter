@@ -7,6 +7,7 @@ use Illuminate\Validation\ValidationException;
 
 use function Livewire\Volt\rules;
 use function Livewire\Volt\state;
+use Toast;
 
 state([
     'current_password' => '',
@@ -52,21 +53,15 @@ $updatePassword = function () {
 
     <form wire:submit="updatePassword" class="mt-6 space-y-6">
         <div>
-            <x-input-label for="update_password_current_password" :value="__('Current Password')" />
-            <x-text-input wire:model="current_password" id="update_password_current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
-            <x-input-error :messages="$errors->get('current_password')" class="mt-2" />
+            <x-input label="Current Password" name="current_password" model="current_password" type="password" icon="o-lock-closed" />
         </div>
 
         <div>
-            <x-input-label for="update_password_password" :value="__('New Password')" />
-            <x-text-input wire:model="password" id="update_password_password" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            <x-input label="New Password" name="password" model="password" type="password" icon="o-lock-closed" />
         </div>
 
         <div>
-            <x-input-label for="update_password_password_confirmation" :value="__('Confirm Password')" />
-            <x-text-input wire:model="password_confirmation" id="update_password_password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full" autocomplete="new-password" />
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+            <x-input label="Confirm Password" name="password_confirmation" model="password_confirmation" type="password" icon="o-lock-closed" />
         </div>
 
         <div class="flex items-center gap-4">
